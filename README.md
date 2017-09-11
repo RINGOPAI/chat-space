@@ -6,6 +6,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
+|email|text|null: false, unique: true|
+|password|string|null: false|
 
 ### Association
 - has_many :members
