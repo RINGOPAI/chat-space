@@ -5,7 +5,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true|
+|name|string|null: false, unique: true, add_index :users, :name|
 
 ### Association
 - has_many :members
