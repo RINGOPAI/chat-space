@@ -1,0 +1,19 @@
+.group
+  .group__header
+    .group__header--name テストグループ
+    =link_to "" do
+      .group__header--editButton Edit
+    .group__header--overview Member：RINGOPAI
+  .group__message
+    .group__message--name RINGOPAI
+    .group__message--time 2017/09/11 03:31
+    .group__message--text こんにちは
+  .group__form
+    %form
+      %input{:type => "text", :placeholder => "type a message", :class => "text_field"}
+      %label
+        %p.fa.fa-picture-o.fa-1x
+        %input{:type => "file", :style => "display: none"}
+      %label
+        .send_button Send
+        %input{:type => "submit", :style => "display: none"}
