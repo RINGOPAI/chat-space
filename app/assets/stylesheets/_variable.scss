@@ -1,0 +1,11 @@
+// 変数を定義する用のファイル
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+$form-height: 50px

@@ -1,0 +1,43 @@
+.sidebar {
+  @include clearfix();
+  float: left;
+  width: 300px;
+  &__header {
+    @include clearfix();
+    width: 260px;
+    height: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #253141;
+    padding: 0 20px;
+      p.name {
+        float: left;
+        line-height: 100px;
+        vertical-align: middle;
+      }
+      p.fa {
+        float: right;
+        color: #FFFFFF;
+        margin-left: 5px;
+        line-height: 100px;
+        vertical-align: middle;
+      }
+  }
+  &__group {
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    width: 260px;
+    padding: 0 20px;
+    color: #FFFFFF;
+    .groupName {
+      font-size: 15px;
+      padding-top: 20px;
+    }
+    .groupText {
+      font-size: 11px;
+      padding-top: 5px;
+      padding-bottom: 40px;
+    }
+  }
+}
