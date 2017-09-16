@@ -1,7 +1,7 @@
 .sidebar
   .sidebar__header
     %p.name #{current_user.name}
-    =link_to "/users/#{current_user.id}/edit" do
+    =link_to edit_user_path(current_user) do
       %p.fa.fa-gear
     =link_to "" do
       %p.fa.fa-edit

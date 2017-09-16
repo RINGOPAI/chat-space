@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     redirect_to controller: :messages, action: :index
   end
 
-private
-def create_params
-  params.require(:user).permit(:name, :email)
-end
+  private
+  def create_params
+    params.require(:user).permit(:name, :email)
+  end
 
 end
