@@ -57,6 +57,7 @@ group :development do
   gem "haml-rails"  #Hamlの導入
   gem 'erb2haml'
   gem "font-awesome-rails"  #font-awesome-railsの導入
+  gem 'pry-rails'
 end
 
 gem 'devise'
