@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(current_user)
     user.update(create_params)
-    redirect_to controller: :messages, action: :index
+    redirect_to root_path
   end
 
   private
