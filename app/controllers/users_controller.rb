@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(current_user)
     user.update(create_params)
+    flash[:notice] = "アカウント情報を更新しました"
     redirect_to root_path
   end
 
