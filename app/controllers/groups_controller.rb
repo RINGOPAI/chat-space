@@ -4,15 +4,18 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(create_params)
-    redirect_to root_path, notice: "グループを作成しました"
+    @group = Group.new(create_params)
+    if @group.save
+      redirect_to root_path, notice: "グループを作成しました"
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    redirect_to root_path
   end
 
   private
