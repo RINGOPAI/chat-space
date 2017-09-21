@@ -1,10 +1,13 @@
 .sidebar
   .sidebar__header
     %p.name #{current_user.name}
-    =link_to edit_user_path(current_user) do
+    = link_to edit_user_path(current_user) do
       %p.fa.fa-gear
-    =link_to new_group_path do
+    = link_to new_group_path do
       %p.fa.fa-edit
   .sidebar__group
-    .groupName  グループ名
-    .groupText グループ説明
+    - @groups.each do |group|
+      / = link_to group_path do
+      .groupName
+        = group.name
+      .groupText まだメッセージはありません
