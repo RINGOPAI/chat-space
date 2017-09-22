@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_group, only: [:edit, :update]
 
   def index
     @groups = current_user.groups
@@ -19,16 +20,18 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:id])
     if @group.update(create_params)
       redirect_to root_path, notice: "グループを編集しました"
     else
       render :edit
     end
+  end
+
+  def user_group
+    @group = Group.find(params[:id])
   end
 
   private
