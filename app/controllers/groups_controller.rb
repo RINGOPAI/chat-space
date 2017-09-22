@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!
   before_action :edit_group, only: [:edit, :update]
 
   def index
