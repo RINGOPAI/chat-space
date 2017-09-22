@@ -3,6 +3,8 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :group
 
+  mount_uploader :image, ImageUploader
+
   def body_or_image
     # bodyかimageのどちらかが入っていればOK
     body.presence || image.presence
