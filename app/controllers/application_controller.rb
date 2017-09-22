@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authenticate_user!
 
 # ユーザー登録時にパラメーターのname属性の受け取りを許可
   before_action :configure_permitted_parameters, if: :devise_controller?
