@@ -1,30 +1,31 @@
 .group
   .group__header
-    .group__header--name テストグループ
+    .group__header--name
+      = @group.name
     =link_to "" do
       .group__header--editButton Edit
-    .group__header--overview Member：RINGOPAI
+    .group__header--overview
+      Member：
+      - @group.users.each do |user|
+        = user.name
   .group__message
-    .group__message--name RINGOPAI
-    .group__message--time 2017/09/11 03:31
-    .group__message--text こんにちは
+    - @group.messages.each do |message|
+      .group__message--name
+        = message.user.name
+      .group__message--time
+        = message.created_at
+      .group__message--text
+        = message.body
+      .group__message--image
+        - if message.image?
+          = image_tag message.image.url
   .group__form
     = form_for [@group, @message] do |f|
       = f.text_field :body, :placeholder => "type a message", :class => "text_field"
       %label
         %p.fa.fa-picture-o.fa-1x
         = f.file_field :image, :style => "display: none"
+        = f.hidden_field :image_cache
       %label
-        = f.submit "Send", :class => "send_button", :style => "display: none"
-
-
-
-
-    / %form
-    /   %input{:type => "text", :placeholder => "type a message", :class => "text_field"}
-    /   %label
-    /     %p.fa.fa-picture-o.fa-1x
-    /     %input{:type => "file", :style => "display: none"}
-    /   %label
-    /     .send_button Send
-    /     %input{:type => "submit", :style => "display: none"}
+        .send_button Send
+        = f.submit "Send", :style => "display: none"

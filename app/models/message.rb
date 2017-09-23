@@ -7,6 +7,6 @@ class Message < ApplicationRecord
 
   def body_or_image
     # bodyかimageのどちらかが入っていればOK
-    body.presence || image.presence
+    body.presence || image.presence || image_cache.presence
   end
 end
