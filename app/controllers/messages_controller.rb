@@ -2,10 +2,12 @@ class MessagesController < ApplicationController
   before_action :index_info
 
   def index
+    @message = @group.messages.new
+    @groups = current_user.groups
   end
 
   def create
-    message = Message.new(message_params)
+    message = @group.messages.new(message_params)
     if message.save
       redirect_to acrion: :index
     else
@@ -16,12 +18,11 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body, :image, :image_cache).merge(group_id: params[:group_id], user_id: current_user.id)
+    params.require(:message).permit(:body, :image, :image_cache).merge(user_id: current_user.id)
   end
 
   def index_info
     @group = Group.find(params[:group_id])
-    @groups = current_user.groups
-    @message = Message.new
+    @messages = @group.messages
   end
 end

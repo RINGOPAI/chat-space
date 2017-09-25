@@ -11,4 +11,4 @@
         .groupName
           = group.name
       .groupText
-        = group.sidebar_message
+        = group.messages.blank? ? 'まだメッセージがありません' : group.sidebar_message

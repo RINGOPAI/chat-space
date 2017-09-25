@@ -9,16 +9,7 @@
       - @group.users.each do |user|
         = user.name
   .group__message
-    - @group.messages.each do |message|
-      .group__message--name
-        = message.user.name
-      .group__message--time
-        = message.created_at
-      .group__message--text
-        = message.body
-      .group__message--image
-        - if message.image?
-          = image_tag message.image.url
+    = render partial: "group_messages"
   .group__form
     = form_for [@group, @message] do |f|
       = f.text_field :body, :placeholder => "type a message", :class => "text_field"
