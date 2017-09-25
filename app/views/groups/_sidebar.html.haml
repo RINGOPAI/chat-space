@@ -10,4 +10,5 @@
       = link_to "/groups/#{group.id}/messages", :style => "text-decoration: none;" do
         .groupName
           = group.name
-      .groupText まだメッセージはありません
+      .groupText
+        = group.sidebar_message
