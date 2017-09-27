@@ -6,6 +6,7 @@
     padding: 0 40px;
     height: 100px;
     border-color: #eeeeee;
+    width: calc(100vw - 380px);
     &--name {
       float: left;
       padding-top: 35px;
@@ -29,35 +30,43 @@
     }
   }
   &__message {
-    height: calc(100vh - 190px);
-    padding: 0 40px;
+    height: calc(100vh - 236px);
+    padding: 46px 40px 0;
     background-color: #fafafa;
+    width: calc(100vw - 380px);
+    position: absolute;
+    top: 100px;
+    overflow: scroll;
     &--name {
       float: left;
       font-size: 16px;
       font-weight: bold;
-      padding-top: 46px;
       margin-right: 10px;
       color: #434A54;
     }
     &--time {
       float: left;
-      padding-top: 46px;
       font-size: 12px;
       color: #999999;
     }
     &--text {
       padding-top: 10px;
-      padding-bottom: 40px;
       font-size: 14px;
       clear: both;
+    }
+    &--image {
+      padding-bottom: 40px;
     }
   }
   &__form {
     @include clearfix();
     height: $form-height;
+    width: calc(100vw - 380px);
     background-color: #dcdcdc;
     padding: 20px 40px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
     .text_field {
       float: left;
       height: $form-height;

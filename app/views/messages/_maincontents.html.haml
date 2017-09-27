@@ -1,0 +1,22 @@
+.group
+  .group__header
+    .group__header--name
+      = @group.name
+    =link_to "" do
+      .group__header--editButton Edit
+    .group__header--overview
+      Member：
+      - @group.users.each do |user|
+        = user.name
+  .group__message
+    = render partial: "group_messages"
+  .group__form
+    = form_for [@group, @message] do |f|
+      = f.text_field :body, :placeholder => "type a message", :class => "text_field"
+      %label
+        %p.fa.fa-picture-o.fa-1x
+        = f.file_field :image, :style => "display: none"
+        = f.hidden_field :image_cache
+      %label
+        .send_button Send
+        = f.submit "Send", :style => "display: none"

@@ -7,6 +7,8 @@
       %p.fa.fa-edit
   .sidebar__group
     - @groups.each do |group|
-      .groupName
-        = group.name
-      .groupText まだメッセージはありません
+      = link_to "/groups/#{group.id}/messages", :style => "text-decoration: none;" do
+        .groupName
+          = group.name
+      .groupText
+        = group.messages.blank? ? 'まだメッセージがありません' : group.sidebar_message
