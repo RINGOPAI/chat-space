@@ -2,10 +2,6 @@ require 'rails_helper'
 
 describe Message do
   describe "#create" do
-    before :each do
-      user = create(:user)
-      group = create(:group)
-    end
 
     it "メッセージがあれば保存できる" do
       message = build(:message, image: "")
