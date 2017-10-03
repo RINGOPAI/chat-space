@@ -6,8 +6,5 @@ FactoryGirl.define do
     password              pass
     password_confirmation pass
 
-    after(:create) do |user|
-      create(:member, user: user, group: create(:group))
-    end
   end
 end

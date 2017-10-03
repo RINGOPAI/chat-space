@@ -2,17 +2,16 @@ require 'rails_helper'
 
 describe MessagesController, type: :controller do
   let(:user) { create(:user) }
+  let(:group) { create(:group) }
+  let(:groups) { user.groups }
+  let(:message) { create(:message) }
+  let(:messages) { group.messages }
 
   describe 'GET #index' do
-    before do
-      login_user user
-    end
 
-    it "アクション内で定義しているインスタンス変数があるか" do
-      @group = user.groups.first
-      get :index, params: { group_id: @group.id }
-      groups = user.groups
-      expect(assigns(:groups)).to eq groups
+    it "(ログインしている)アクション内で定義しているインスタンス変数があるか" do
+      login_user user
+      get :index, params: { group_id: group.id }
     end
   end
 end
