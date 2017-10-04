@@ -5,5 +5,6 @@ FactoryGirl.define do
     pass = Faker::Number.number(8)
     password              pass
     password_confirmation pass
+
   end
 end

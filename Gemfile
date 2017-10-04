@@ -41,6 +41,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -50,21 +52,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
-  gem 'faker'
+  gem 'erb2haml'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-group :development do
-  gem "haml-rails"  #Hamlの導入
-  gem 'erb2haml'
-  gem "font-awesome-rails"  #font-awesome-railsの導入
-end
+gem "font-awesome-rails"  #font-awesome-railsの導入
 
+gem "haml-rails"  #Hamlの導入
 gem 'devise'
 
 gem 'carrierwave'
