@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to acrion: :index }
         format.json
+      end
     else
       flash[:alert] = "メッセージの入力か、画像の添付をしてください"
       render :index
