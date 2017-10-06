@@ -48,7 +48,8 @@ function appendNewMessage(message) {
       appendNewMessage(message);
 
     })
-    .fail(function(message) {
+    .fail(function() {
+      alert("送信に失敗しました");
 
     })
 
