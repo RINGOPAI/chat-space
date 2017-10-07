@@ -1,2 +1,2 @@
-json.body message.body
-json.image message.image
+# json.body message.body
+# json.image message.image
