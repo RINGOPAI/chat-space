@@ -23,8 +23,8 @@ function appendNewMessage(message) {
     e.preventDefault();
     var formData = new FormData(this);
     var url = location.pathname;
-    // console.log(this);
-    // console.log(url);
+    console.log(formData);
+    console.log(url);
 
     $.ajax({
       type: "POST",

@@ -5,10 +5,14 @@ class MessagesController < ApplicationController
   end
 
   def create
+    # ↓ここでは止まる
+    binding.pry
     message = @group.messages.new(message_params)
+    # ↓ここでは止まらない
+    binding.pry
     if message.save
       respond_to do |format|
-        format.html { redirect_to acrion: :index }
+        format.html { redirect_to action: :index }
         format.json
       end
     else
