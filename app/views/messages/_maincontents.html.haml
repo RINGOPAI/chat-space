@@ -15,8 +15,8 @@
       = f.text_field :body, :placeholder => "type a message", :class => "text_field"
       %label
         %p.fa.fa-picture-o.fa-1x
-        = f.file_field :image, :style => "display: none"
+        = f.file_field :image, :style => "display: none", :class => "file_field"
         = f.hidden_field :image_cache
       %label
         .send_button Send
-        = f.submit "Send", :style => "display: none"
+        = f.submit "Send", :style => "display: none", :class => "button"

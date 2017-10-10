@@ -5,9 +5,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = @group.messages.new(message_params)
-    if message.save
-      redirect_to acrion: :index
+    @newmessage = @group.messages.new(message_params)
+    if @newmessage.save
+      respond_to do |format|
+        format.html { redirect_to action: :index }
+        format.json
+      end
     else
       flash[:alert] = "メッセージの入力か、画像の添付をしてください"
       render :index
