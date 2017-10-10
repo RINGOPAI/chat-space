@@ -1,30 +1,31 @@
 $(function() {
 
 function appendNewMessage(message) {
+  var imageUrl = ``;
+  if (message.image.url !== null) {
+    imageUrl = `<img src= "${message.image.url}">`;
+  }
+
   var html = `<div class = "group__message--name">
-                ${message.user.name}
+                ${ message.name }
               </div>
-              <dic class = "group__message--time">
-                ${message.created_at}
+              <div class = "group__message--time">
+                ${ message.created_at }
               </div>
               <div class = "group__message--text">
-                ${message.body}
+                ${ message.text }
               </div>
               <div class = "group__message--image">
-                <% if message.image? %>
-                  <%= image_tag(${message.image.url}) %>
+                ${ imageUrl }
               </div>`
 
   $(".group__message").append(html);
-  // $(".group__message").animate({scrollTop: 0});
 }
 
-  $(".group__form").on("submit", function(e) {
+  $("#new_message").on("submit", function(e) {
     e.preventDefault();
     var formData = new FormData(this);
     var url = location.pathname;
-    console.log(formData);
-    console.log(url);
 
     $.ajax({
       type: "POST",
@@ -35,9 +36,12 @@ function appendNewMessage(message) {
       contentType: false
     })
 
-    .done(function(message) {
-      appendNewMessage(message);
-      console.log("done");
+    .done(function(data) {
+      console.log(data);
+      appendNewMessage(data);
+      $(".text_field").val("");
+      $(".file_field").val("");
+      $(".group__message").animate({scrollTop: $(".group__message")[0].scrollHeight}, 500);
     })
     .fail(function() {
       alert("送信に失敗しました");
