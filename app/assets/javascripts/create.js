@@ -37,7 +37,6 @@ function appendNewMessage(message) {
     })
 
     .done(function(data) {
-      console.log(data);
       appendNewMessage(data);
       $(".text_field").val("");
       $(".file_field").val("");
