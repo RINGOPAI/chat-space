@@ -20,6 +20,7 @@ function appendNewMessage(message) {
               </div>`
 
   $(".group__message").append(html);
+  $(".group__message").animate({scrollTop: $(".group__message")[0].scrollHeight}, 500);
 }
 
   $("#new_message").on("submit", function(e) {
@@ -40,7 +41,7 @@ function appendNewMessage(message) {
       appendNewMessage(data);
       $(".text_field").val("");
       $(".file_field").val("");
-      $(".group__message").animate({scrollTop: $(".group__message")[0].scrollHeight}, 500);
+      $(".button").prop("disabled", false);
     })
     .fail(function() {
       alert("送信に失敗しました");
