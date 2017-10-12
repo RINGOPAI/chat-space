@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load',function() {
+$(function() {
+// $(document).on('turbolinks:load',function() {
 
 function appendNewMessage(message) {
   var imageUrl = ``;
