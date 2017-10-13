@@ -27,7 +27,6 @@ $(function() {
 
   function autoUpdate() {
     var message_id = $(".group__message--content:last").data("id");
-    console.log("更新します");
 
     $.ajax({
       type: "GET",
@@ -41,9 +40,6 @@ $(function() {
           appendNewMessage(data);
         });
         $(".group__message").animate({scrollTop: $(".group__message")[0].scrollHeight}, 500);
-        console.log("更新しました");
-      } else {
-        console.log("更新データはありませんでした");
       }
     })
   }

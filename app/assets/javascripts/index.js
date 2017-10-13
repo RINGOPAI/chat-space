@@ -66,15 +66,12 @@ $(function(){
   });
 
   $(document).on("click", ".chat-group-user__btn--add", function(){
-    console.log("追加クリックされた");
     var addUser = $(this).get(0);
-    console.log(addUser);
     $(this).parent().remove();
     addUserList(addUser);
   });
 
   $(document).on("click", ".chat-group-user__btn--remove", function(){
-    console.log("削除クリックされた");
     $(this).parent().remove();
   });
 
