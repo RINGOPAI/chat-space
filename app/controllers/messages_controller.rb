@@ -2,6 +2,10 @@ class MessagesController < ApplicationController
   before_action :index_info
 
   def index
+    respond_to do |format|
+      format.html
+      format.json {@new_messages = @messages.where('id > ?', params[:message][:id])}
+    end
   end
 
   def create

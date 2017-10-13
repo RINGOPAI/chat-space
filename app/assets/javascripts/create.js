@@ -7,7 +7,8 @@ function appendNewMessage(message) {
     imageUrl = `<img src= "${message.image.url}">`;
   }
 
-  var html = `<div class = "group__message--name">
+  var html = `<div class = "group__message--content" data-id = "${ message.id }">
+              <div class = "group__message--name">
                 ${ message.name }
               </div>
               <div class = "group__message--time">
@@ -18,6 +19,7 @@ function appendNewMessage(message) {
               </div>
               <div class = "group__message--image">
                 ${ imageUrl }
+              </div>
               </div>`
 
   $(".group__message").append(html);
@@ -48,6 +50,5 @@ function appendNewMessage(message) {
       alert("送信に失敗しました");
 
     })
-
   });
 });

@@ -1,10 +1,11 @@
 - @messages.each do |message|
-  .group__message--name
-    = message.user.name
-  .group__message--time
-    = message.created_at
-  .group__message--text
-    = message.body
-  .group__message--image
-    - if message.image?
-      = image_tag message.image.url
+  .group__message--content{data: {id: "#{message.id}"}}
+    .group__message--name
+      = message.user.name
+    .group__message--time
+      = message.created_at
+    .group__message--text
+      = message.body
+    .group__message--image
+      - if message.image?
+        = image_tag message.image.url
